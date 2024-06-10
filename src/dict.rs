@@ -57,7 +57,14 @@ fn convert_pinyin(pinyin: &str) -> String {
                         0
                     }
                 };
-                let withoutnumber: String= p.chars().take(p.len()-1).collect();
+                let withoutnumber: String= {
+                    if index == 1 {
+                        p.chars().take(p.len()-2).collect()
+                    } else {
+                        p.chars().take(p.len()-1).collect()
+                    }
+                };
+                 
                 if number == 5 {
                     withoutnumber
                 } else {
